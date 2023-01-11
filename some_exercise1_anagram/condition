@@ -1,3 +1,4 @@
 input 2 words
 if first word formed by rearranging the letters of another , result is true
 example : "son" "nos" - true
+example : "sun" "nos" - true
