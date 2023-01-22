@@ -3,7 +3,6 @@ package some_exercise1_anagram;
 import java.util.Arrays;
 
 public class Anagram {
-//    String result ;
 
     public static boolean anagram(String word1, String word2) {
         if (word1.equals(word2)) {
@@ -21,7 +20,6 @@ public class Anagram {
 
             System.out.println("sorted array from word number 1 - " + Arrays.toString(charArr1));
             System.out.println("sorted array from word number 2 - " + Arrays.toString(charArr1));
-
 
 
             for (int i = 0; i < charArr1.length; i++) {

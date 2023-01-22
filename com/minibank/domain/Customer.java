@@ -63,4 +63,17 @@ public class Customer {
         }
         return s;
     }
+
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getNumberOfAccounts() {
+        return numberOfAccounts;
+    }
 }

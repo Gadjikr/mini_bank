@@ -12,7 +12,7 @@ public class TestBank {
 
         SavingAccount costomer1SaveAcc = new SavingAccount(5);
         CheckingAccount costomer1CheckAcc = new CheckingAccount(5000);
-        CheckingAccount costomer2CheckAcc = new CheckingAccount(500);
+        CheckingAccount costomer2CheckAcc = new CheckingAccount();
 
 
         customer1.addAccount(costomer1SaveAcc);

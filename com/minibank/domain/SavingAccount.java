@@ -3,15 +3,19 @@ package com.minibank.domain;
 import com.minibank.effect.Effects;
 
 /**
- * if money in this account more then some period, they increase with some percent
+ * if money in this account more than some period, they increase with some percent
  */
 public class SavingAccount extends Account {
-    int increaseRate;
+    float increaseRate;
 
-    public SavingAccount(int increaseRate) {
+    public SavingAccount(float increaseRate, double balance) {
         this.increaseRate = increaseRate;
+        this.balance = balance;
     }
 
+    public SavingAccount(float increaseRate) {
+        this.increaseRate = increaseRate;
+    }
 
     @Override
     public void withDraw(double amount) {
@@ -41,4 +45,12 @@ public class SavingAccount extends Account {
         Effects.pauseSilent(3);
     }
 
+    public float getIncreaseRate() {
+        return increaseRate;
+    }
+
+    public void setIncreaseRate(float increaseRate) {
+        this.increaseRate = increaseRate;
+    }
 }
+
