@@ -20,6 +20,12 @@ public class CheckingAccount extends Account {
         this.overdraftAmount = overdraftAmount;
     }
 
+    public CheckingAccount(double overdraftAmount, double balance) {
+        this.balance = balance;
+        this.overdraftAmount = overdraftAmount;
+    }
+
+
     /**
      * @param amount must be less than (balance and overdraft sum)
      */
