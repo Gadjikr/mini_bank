@@ -1,89 +1,193 @@
 package com.minibank.ATM;
 
+import com.intellij.uiDesigner.core.GridConstraints;
+import com.intellij.uiDesigner.core.GridLayoutManager;
+import com.intellij.uiDesigner.core.Spacer;
+
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.plaf.FontUIResource;
+import javax.swing.text.StyleContext;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Locale;
 
 // todo остановился урок 11 время 36.30
 
-public class BankATM {
+public class BankATM extends JFrame {
     private JPanel mainPanel;
-    private JPanel leftPanel;
-    private JButton checkBalanceButton;
-    private JButton makeDepositButton;
-    private JButton makeWithdrawalButton;
-    private JButton n1Button;
-    private JButton n2Button;
-    private JButton n3Button;
-    private JButton n4Button;
-    private JButton n5Button;
-    private JButton n6Button;
-    private JTextField amountField;
-    private JButton n7Button;
-    private JButton n8Button;
-    private JButton n9Button;
-    private JTextField statusField;
-    private JButton n0Button;
-    private JButton ENTERButton;
-    private JTextArea historyField;
-    private JButton pointButton;
+    private JPanel leftPanel = new JPanel();
+    private JButton checkBalanceButton = new JButton();
+    private JButton makeDepositButton = new JButton();
+    private JButton makeWithdrawalButton = new JButton();
+    private JButton n1Button = new JButton();
+    private JButton n2Button = new JButton();
+    private JButton n3Button = new JButton();
+    private JButton n4Button = new JButton();
+    private JButton n5Button = new JButton();
+    private JButton n6Button = new JButton();
+    private JTextField amountField = new JTextField();
+    private JButton n7Button = new JButton();
+    private JButton n8Button = new JButton();
+    private JButton n9Button = new JButton();
+    private JTextField statusField = new JTextField();
+    private JButton n0Button = new JButton();
+    private JButton ENTERButton = new JButton();
+    private JTextArea historyField = new JTextArea();
+    private JButton pointButton = new JButton();
 
-//    public BankATM() {
-//        this.mainPanel = new JPanel();
-//        this.leftPanel = new JPanel();
-//        this.checkBalanceButton = new JButton();
-//        this.makeDepositButton = new JButton();
-//        this.makeWithdrawalButton = new JButton();
-//        this.n1Button = new JButton();
-//        this.n2Button = new JButton();
-//        this.n3Button = new JButton();
-//        this.n4Button = new JButton();
-//        this.n5Button = new JButton();
-//        this.n6Button = new JButton();
-//        this.amountField = new JTextField("", 50);
-//        this.n7Button = new JButton();
-//        this.n8Button = new JButton();
-//        this.n9Button = new JButton();
-//        this.statusField = new JTextField("", 50);
-//        this.n0Button = new JButton();
-//        this.ENTERButton = new JButton();
-//        this.historyField = new JTextArea(10, 50);
-//        this.pointButton = new JButton();
-//    }
+    public BankATM() {
+        $$$setupUI$$$();
+        checkBalanceButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                // example of mouseListener
+                System.out.println("clicked");
+            }
+        });
+        makeDepositButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+            }
+        });
+    }
 
     private void createUIComponents() {
-//        JFrame frame = new JFrame("Bank chat");
-        ///////////////////
-//        frame.add(mainPanel);
-//        frame.add(leftPanel);
-//        frame.add(checkBalanceButton);
-//        frame.add(makeDepositButton);
-//        frame.add(makeWithdrawalButton);
-//        frame.add(n1Button);
-//        frame.add(n2Button);
-//        frame.add(n3Button);
-//        frame.add(n4Button);
-//        frame.add(n5Button);
-//        frame.add(n6Button);
-//        frame.add(amountField);
-//        frame.add(n7Button);
-//        frame.add(n8Button);
-//        frame.add(n9Button);
-//        frame.add(statusField);
-//        frame.add(n0Button);
-//        frame.add(ENTERButton);
-//        frame.add(historyField);
-//        frame.add(pointButton);
-
-//        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//        frame.pack();
-//        frame.setLocationRelativeTo(null);
-//        frame.setVisible(true);
-        /////////////////
     }
 
     public static void main(String[] args) {
-//        BankATM bankATM = new BankATM();
-//        bankATM.createUIComponents();
+        BankATM bankATM = new BankATM();
+        bankATM.setContentPane(bankATM.mainPanel);
+        bankATM.setSize(600, 300);
+        bankATM.setVisible(true);
+        bankATM.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
 
+
+    /**
+     * Method generated by IntelliJ IDEA GUI Designer
+     * >>> IMPORTANT!! <<<
+     * DO NOT edit this method OR call it in your code!
+     *
+     * @noinspection ALL
+     */
+    private void $$$setupUI$$$() {
+        createUIComponents();
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout(0, 0));
+        mainPanel.setEnabled(true);
+        Font mainPanelFont = this.$$$getFont$$$(null, Font.BOLD, -1, mainPanel.getFont());
+        if (mainPanelFont != null) mainPanel.setFont(mainPanelFont);
+        mainPanel.setMinimumSize(new Dimension(600, 270));
+        mainPanel.setName("Mini Bank ATM");
+        mainPanel.setPreferredSize(new Dimension(600, 270));
+        mainPanel.setRequestFocusEnabled(true);
+        mainPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, null, null));
+        leftPanel.setLayout(new GridLayoutManager(9, 3, new Insets(0, 0, 0, 0), -1, -1));
+        leftPanel.setEnabled(true);
+        mainPanel.add(leftPanel, BorderLayout.WEST);
+        checkBalanceButton = new JButton();
+        checkBalanceButton.setText("Check balance");
+        leftPanel.add(checkBalanceButton, new GridConstraints(0, 0, 1, 3, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        n1Button = new JButton();
+        n1Button.setText("1");
+        leftPanel.add(n1Button, new GridConstraints(5, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        n2Button = new JButton();
+        n2Button.setText("2");
+        leftPanel.add(n2Button, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        n3Button = new JButton();
+        n3Button.setText("3");
+        leftPanel.add(n3Button, new GridConstraints(5, 2, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        n4Button = new JButton();
+        n4Button.setText("4");
+        leftPanel.add(n4Button, new GridConstraints(6, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        n5Button = new JButton();
+        n5Button.setText("5");
+        leftPanel.add(n5Button, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        n6Button = new JButton();
+        n6Button.setText("6");
+        leftPanel.add(n6Button, new GridConstraints(6, 2, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        n7Button = new JButton();
+        n7Button.setText("7");
+        leftPanel.add(n7Button, new GridConstraints(7, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        n8Button = new JButton();
+        n8Button.setText("8");
+        leftPanel.add(n8Button, new GridConstraints(7, 1, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        n9Button = new JButton();
+        n9Button.setText("9");
+        leftPanel.add(n9Button, new GridConstraints(7, 2, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        amountField = new JTextField();
+        amountField.setHorizontalAlignment(2);
+        leftPanel.add(amountField, new GridConstraints(3, 0, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        makeDepositButton = new JButton();
+        makeDepositButton.setText("Make Deposit");
+        leftPanel.add(makeDepositButton, new GridConstraints(1, 0, 1, 3, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        makeWithdrawalButton = new JButton();
+        makeWithdrawalButton.setText("Make Withdrawal");
+        leftPanel.add(makeWithdrawalButton, new GridConstraints(2, 0, 1, 3, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        n0Button = new JButton();
+        n0Button.setText("0");
+        leftPanel.add(n0Button, new GridConstraints(8, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        ENTERButton = new JButton();
+        ENTERButton.setText("ENTER");
+        leftPanel.add(ENTERButton, new GridConstraints(8, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final Spacer spacer1 = new Spacer();
+        leftPanel.add(spacer1, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 8, false));
+        final Spacer spacer2 = new Spacer();
+        leftPanel.add(spacer2, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 8, false));
+        final Spacer spacer3 = new Spacer();
+        leftPanel.add(spacer3, new GridConstraints(4, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 8, false));
+        pointButton = new JButton();
+        pointButton.setText(".");
+        leftPanel.add(pointButton, new GridConstraints(8, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        statusField = new JTextField();
+        statusField.setEditable(false);
+        statusField.setText("Welcome to miniBank !!!");
+        mainPanel.add(statusField, BorderLayout.SOUTH);
+        historyField = new JTextArea();
+        historyField.setBackground(new Color(-1));
+        historyField.setCaretPosition(0);
+        historyField.setEditable(false);
+        Font historyFieldFont = this.$$$getFont$$$(null, -1, -1, historyField.getFont());
+        if (historyFieldFont != null) historyField.setFont(historyFieldFont);
+        historyField.setForeground(new Color(-14803426));
+        historyField.setMargin(new Insets(0, 10, 0, 0));
+        historyField.setName("");
+        historyField.setText("");
+        historyField.putClientProperty("caretWidth", new Integer(285));
+        mainPanel.add(historyField, BorderLayout.CENTER);
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    private Font $$$getFont$$$(String fontName, int style, int size, Font currentFont) {
+        if (currentFont == null) return null;
+        String resultName;
+        if (fontName == null) {
+            resultName = currentFont.getName();
+        } else {
+            Font testFont = new Font(fontName, Font.PLAIN, 10);
+            if (testFont.canDisplay('a') && testFont.canDisplay('1')) {
+                resultName = fontName;
+            } else {
+                resultName = currentFont.getName();
+            }
+        }
+        Font font = new Font(resultName, style >= 0 ? style : currentFont.getStyle(), size >= 0 ? size : currentFont.getSize());
+        boolean isMac = System.getProperty("os.name", "").toLowerCase(Locale.ENGLISH).startsWith("mac");
+        Font fontWithFallback = isMac ? new Font(font.getFamily(), font.getStyle(), font.getSize()) : new StyleContext().getFont(font.getFamily(), font.getStyle(), font.getSize());
+        return fontWithFallback instanceof FontUIResource ? fontWithFallback : new FontUIResource(fontWithFallback);
+    }
+
+    /**
+     * @noinspection ALL
+     */
+    public JComponent $$$getRootComponent$$$() {
+        return mainPanel;
     }
 
 }
