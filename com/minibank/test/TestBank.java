@@ -24,8 +24,8 @@ public class TestBank {
 
         System.out.println(bank.getCustomer(0));
         System.out.println(bank.getCustomer(1));
-        System.out.println(bank.getCustomer(9001));
-        System.out.println(bank.getCustomer(901));
+//        System.out.println(bank.getCustomer(9001));
+//        System.out.println(bank.getCustomer(901));
 
 
         bank.getCustomer(0).getAccount(0).deposit(4000);

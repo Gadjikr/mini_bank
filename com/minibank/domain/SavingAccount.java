@@ -20,9 +20,10 @@ public class SavingAccount extends Account {
     @Override
     public void withDraw(double amount) {
 
-        System.out.println("\ncurrent balance (with percents): " + (balance + (balance * increaseRate / 100)));
+//        System.out.println("\ncurrent balance (with percents): " + (balance + (balance * increaseRate / 100)));
         System.out.println("amount to withdraw : " + amount);
-        double newBalance = balance + (balance * increaseRate / 100) - amount;
+        double newBalance = balance - amount;
+//        double newBalance = balance + (balance * increaseRate / 100) - amount;
 
         if (newBalance < 0) {
             System.out.println(RED + "You have not enough money to withdraw " + amount + " coins" + RESET);
