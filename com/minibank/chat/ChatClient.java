@@ -5,8 +5,10 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 import javax.swing.*;
+import java.net.*;
+import java.io.*;
+
 
 public class ChatClient {
 
@@ -14,6 +16,32 @@ public class ChatClient {
     private TextField input;
     private JButton quitButton;
     private JButton sendButton;
+
+    private Socket connection = null;
+    private BufferedReader serverIn = null;
+    private PrintStream serverOut = null;
+
+    private void doConnect() {
+        String serverIP = System.setProperty("ServerIP", "127.0.0.1");
+        String serverPort = System.setProperty("ServerPort", "2000");
+
+
+        try {
+//            connection = new Socket(serverIP, 2000);
+//            connection = new Socket(serverIP, Integer.parseInt(serverPort));
+            connection = new Socket("127.0.0.1", 2000);
+            InputStream inputStream = connection.getInputStream();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            serverIn = new BufferedReader(inputStreamReader);
+            serverOut = new PrintStream(connection.getOutputStream());
+            Thread thread = new Thread(new remoteReader());
+            thread.start();
+
+        } catch (Exception ex) {
+            System.err.println("Error : unable to connect server !");
+            ex.printStackTrace();
+        }
+    }
 
     public ChatClient() {
         this.output = new TextArea(10, 50);
@@ -23,7 +51,7 @@ public class ChatClient {
     }
 
     public void launchFrame() {
-        JFrame frame = new JFrame("Bank chat");
+        JFrame frame = new JFrame("Client-Bank chat");
         frame.setLayout(new BorderLayout());
         frame.add(output, BorderLayout.CENTER);
         output.setEditable(false);
@@ -55,6 +83,8 @@ public class ChatClient {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
+        doConnect();
     }
 
     public static void main(String[] args) {
@@ -86,9 +116,25 @@ public class ChatClient {
         @Override
         public void actionPerformed(ActionEvent e) {
             String message = input.getText();
-            output.append(message + "\n");
+//            output.append(message + "\n");
+            serverOut.println("new message: " + message + "\n");
             input.setText("");
         }
     }
 
+    private class remoteReader implements Runnable {
+        @Override
+        public void run() {
+            try {
+                while (true) {
+                    String nextLine = serverIn.readLine();
+                    output.append(nextLine + "\n");
+                }
+            } catch (Exception e) {
+                System.err.println("Can't receive server message !");
+                e.printStackTrace();
+            }
+
+        }
+    }
 }

@@ -3,6 +3,10 @@ package com.minibank.ATM;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import com.minibank.domain.Bank;
+import com.minibank.domain.CheckingAccount;
+import com.minibank.domain.Customer;
+import com.minibank.domain.SavingAccount;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -15,9 +19,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Locale;
 
-import com.minibank.domain.*;
-
-// todo остановился урок 11 время 56 минут
 
 public class BankATM extends JFrame {
 
@@ -151,6 +152,7 @@ public class BankATM extends JFrame {
                         showBalance();
                         severalAccountDeposit = false;
                         System.out.println(" done depositListener 2");
+                        currentAccount = -1;
 
                     } catch (NumberFormatException ex) {
                         historyField.append("format ERROR2");
